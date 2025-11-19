@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Trò Chơi Thú Vị - Phòng tránh lừa đảo qua mạng</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="game-element cloud cloud1"></div>
+    <div class="game-element cloud cloud2"></div>
+    <div class="game-element cloud cloud3"></div>
+    <div class="game-element block block1"></div>
+    <div class="game-element block block2"></div>
+    <div class="game-element coin coin1"></div>
+    <div class="game-element coin coin2"></div>
+    <div class="game-element coin coin3"></div>
+
+    <div class="container">
+      <div class="card">
+        <div id="intro">
+          <div class="header">
+            <h1>Trò Chơi Thú Vị</h1>
+            <p class="subtitle">Chào mừng bạn đến với trò chơi đặc biệt!</p>
+          </div>
+          
+          <div class="form-group">
+            <label for="name">Họ và tên của bạn:</label>
+            <input id="name" type="text" placeholder="Ví dụ: Nguyễn Văn A" />
+          </div>
+          <button id="startBtn">BẮT ĐẦU NGAY!</button>
+        </div>
+
+        <div id="camera" class="hidden">
+          <div class="header">
+            <h1>Chụp Ảnh Đại Diện</h1>
+            <p class="camera-instruction">Hãy chụp 1 ảnh đại diện để được hiển thị hình ảnh nếu bạn là 1 trong 3 người chơi đạt điểm cao nhất!</p>
+          </div>
+          <div class="camera-container">
+            <video id="video" autoplay playsinline></video>
+            <canvas id="canvas" class="hidden"></canvas>
+          </div>
+          <div class="controls">
+            <button id="takePhotoBtn">CHỤP ẢNH</button>
+            <button id="retryBtn" class="hidden">CHỤP LẠI</button>
+          </div>
+        </div>
+
+        <div id="loading" class="hidden">
+          <div class="header">
+            <h1>Đang tạo hồ sơ...</h1>
+            <p class="subtitle">Vui lòng chờ trong giây lát</p>
+          </div>
+          <div class="profile-preview">
+            <div class="avatar-container">
+              <img id="avatarPreview" src="" alt="Avatar" class="avatar-circle">
+            </div>
+            <h3 id="playerNameDisplay" class="player-name"></h3>
+            <div class="progress-bar">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <p class="loading-text">Đang xử lý thông tin...</p>
+          </div>
+        </div>
+
+        <div id="result" class="hidden">
+          <div class="prank-reveal">
+            <h2 id="resultTitle">🚨 BẠN ĐÃ BỊ LỪA! 🚨</h2>
+            <p class="main-warning">Không có trò chơi nào ở đây cả!</p>
+            <p class="explanation">Bạn vừa trở thành nạn nhân của một cuộc tấn công lừa đảo mô phỏng! Hãy luôn cảnh giác với các website yêu cầu thông tin cá nhân.</p>
+            <div class="emoji-section">😱💸🔒</div>
+          </div>
+          <button id="restartBtn">CHƠI LẠI</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
