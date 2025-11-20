@@ -57,14 +57,14 @@ function showLoading(playerName, imageData) {
   
   let progress = 0;
   const interval = setInterval(() => {
-    progress += Math.random() * 15 + 5;
+    progress += Math.random() * 8 + 3;
     if (progress >= 100) {
       progress = 100;
       clearInterval(interval);
-      setTimeout(() => showResult(), 800);
+      setTimeout(() => showResult(), 1500);
     }
     if (progressFill) progressFill.style.width = progress + '%';
-  }, 200);
+  }, 300);
 }
 
 takePhotoBtn.addEventListener('click', () => {
@@ -73,7 +73,11 @@ takePhotoBtn.addEventListener('click', () => {
   canvas.width = w;
   canvas.height = h;
   const ctx = canvas.getContext('2d');
-  ctx.drawImage(video, 0, 0, w, h);
+  
+  ctx.save();
+  ctx.scale(-1, 1);
+  ctx.drawImage(video, -w, 0, w, h);
+  ctx.restore();
 
   const imageData = canvas.toDataURL('image/jpeg');
   const playerName = nameInput.value.trim();
